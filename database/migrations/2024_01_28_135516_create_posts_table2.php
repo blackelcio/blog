@@ -9,16 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+        
             $table->string('title');
             $table->string('description');
             $table->text('content');
             $table->string('slug');
             $table->boolean('is_active');
+            $table->unsignedBigInteger('id_user');    
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');                        
             $table->timestamps();
+
+
         });
     }
 
@@ -27,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('posts_id_user_foreign');
     }
 };

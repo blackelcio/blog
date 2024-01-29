@@ -14,10 +14,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'Heitor Nascimento Rezende',
-            'email' => 'rotieh@gmail.com',
-            'password' => bcrypt('Roblox2020')
-        ]);
+        // User::create([
+        //     'name' => 'Heitor Nascimento Rezende',
+        //     'email' => 'rotieh@gmail.com',
+        //     'password' => bcrypt('Roblox2020')
+        // ]);
+
+            \App\Models\User::factory(10)->create();
+
     }
 }
