@@ -30,4 +30,13 @@ class PostController extends Controller
         
         dd(Post::create($data));
     }
+
+    public function show($post)
+    {
+        $post = Post::findOrFail($post);
+    
+        return view('posts.edit', compact('post'));
+    }
+    
+
 }
