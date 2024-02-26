@@ -21,11 +21,13 @@ use App\Http\Controllers\Admin\PostController;
  });
 
 Route::prefix('admin')->group(function(){
-    // Route::prefix('posts')->name('posts.')->group(function(){
+     Route::prefix('posts')->name('posts.')->group(function(){
          Route::get('/create',[\App\Http\Controllers\Admin\PostController::class, 'create'])->name('create');
-    //     Route::post('/store', [\App\Http\Controllers\Admin\PostController::class, 'store'])->name('store');
-    // });
+     Route::post('/store', [\App\Http\Controllers\Admin\PostController::class, 'store'])->name('store');
+     });
 
     Route::resource('posts', \App\Http\Controllers\Admin\PostController::class);
 
+
+    Route::resource('edit', \App\Http\Controllers\Admin\PostController::class);
 });
